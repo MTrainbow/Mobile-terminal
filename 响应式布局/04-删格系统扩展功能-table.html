@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale= user-scalable=no">
+    <title>Bootstrap 101 Template</title>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="lib/html5shiv/html5shiv.min.js"></script>
+    <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .container {
+            background-color:darkgray;
+        }
+        .container > .row > div {
+            height: 40px;
+            border: 1px solid red;
+        }
+        .col-lg-4 > .row > div {
+            height: 20px;
+            background-color: greenyellow;
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<!--
+删格系统的  嵌套、偏移、次序
+-->
+<h1>删格系统</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-6 col-lg-offset-4"></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row">
+                <div class="col-lg-3 col-lg-push-9">col-lg-2</div>
+                <div class="col-lg-9 col-lg-pull-3">col-lg-6</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

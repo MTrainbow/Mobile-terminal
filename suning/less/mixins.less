@@ -1,0 +1,13 @@
+
+//遍历 less没有循环语句，使用函数迭代
+//当前rem基准值 = 预设的基准值 / 设计稿宽度 * 当前设备的宽度
+.adapterMixin(@index) when (@index > 0) {
+  @media (min-width: extract(@adapterDeviceList,@index)) {
+    html {
+      font-size:@baseFontSize / @psdWidth * extract(@adapterDeviceList,@index);
+    }
+  }
+  //操蛋的语法,这里的 - 1需要有空格
+  .adapterMixin(@index - 1) ;
+}
+

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 300px;
+            height: 300px;
+            background: #ccc;
+            float: left;
+        }
+        #container {
+            width: 300px;
+            height: 300px;
+            background: #aaa;
+            float: left;
+            /*overflow: hidden;*/
+        }
+        #div {
+            width: 300px;
+            height: 300px;
+            background: pink;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="container"></div>
+    <div id="div"></div>
+
+<script src="lib/template-web.js"></script>
+<script id="test" type="text/x-art-template">
+    <h1>{{title}}</h1>
+</script>
+<script id="con" type="text/x-art-template">
+    <div>
+        {{if box==22 }}
+        <h1>线上</h1>
+        {{else if box==23}}
+        <h2>隐藏</h2>
+        {{else }}
+        <h3>走着里</h3>
+        {{/if}}
+    </div>
+</script>
+    <script id="test1" type="text/x-art-template">
+        <div>
+            {{if bok}}
+            {{if list.length>=0}}
+            {{each list}}
+            <p>{{$index}}:{{$value}}</p>
+            {{/each}}
+            {{else}}
+            <p>没有数据</p>
+            {{/if}}
+            {{/if}}
+        </div>
+    </script>
+<script>
+    // var html = template('test',{title:'<p>hello world<p>'})
+    var html = template('test',{"title":"hello world"})
+    document.getElementById('box').innerHTML = html
+
+    var text = template('con', {"box":"52"})
+    document.getElementById('container').innerHTML = text
+
+    var data = {
+        "bok":true,
+        list:["a","b","c"]
+    };
+    var htmls = template('test1',data);
+    document.getElementById("div").innerHTML = htmls;
+</script>
+</body>
+</html>

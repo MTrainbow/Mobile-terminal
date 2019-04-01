@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="lib/jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $(document)
+            .ajaxStart(function () {
+                console.log('++++++++++')
+            
+        })
+            .ajaxStop(function () {
+                console.log('++++++++++++')
+            })
+
+        // $.ajax({
+        //     url : 'http://api.douban.com/v2/movie/top250',
+        //     dataType:'jsonp',
+        //     data:{},
+        //     success:function (res) {
+        //         console.log(res)
+        //     }
+        // })
+
+        $.post('http://mtdy.ios/test.php',{name:"zhangsan", age:15},function (res) {
+            console.log(res)
+        });
+    })
+</script>
+</body>
+</html>

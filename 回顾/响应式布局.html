@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-intalable=no">
+    <title>响应式布局</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .con {
+            width: 1000px;
+            height: 1000px;
+            margin: 0 auto;
+            background-color:pink;
+        }
+        @media screen and (max-width: 768px) and (min-width: 320px){
+            .con {
+                width: 100%;
+                background-color: mediumvioletred;
+            }
+        }
+        @media screen and (min-width: 768px) and(max-width: 992px){
+            .con {
+                width: 750px;
+                background-color: blue;
+            }
+        }
+
+        @media  screen and(min-width: 992px) and(max-width: 1200px){
+            .con{
+                width: 980px;
+                background-color: lightyellow;
+            }
+        }
+        @media screen and (min-width: 1200px){
+            .con{
+                width: 1180px;
+                background-color: yellow;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="con"></div>
+</body>
+</html>

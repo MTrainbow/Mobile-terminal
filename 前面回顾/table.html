@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
+    <title>Title</title>
+    <link rel="stylesheet" href="../wjs/lib/bootstrap/css/bootstrap.css">
+</head>
+<body>
+<div class="table-responsive">
+    <table class="table table-bordered table-hover table-striped">
+        <caption>基本表格数据</caption>
+        <a href="#" class="btn btn-danger btn-sm" id="btn" role="butto" style="display: none">按钮</a>
+        <thead>
+            <tr>
+                <th><input type="checkbox" name="" id="allcheckbox"></th>
+                <th>名称</th>
+                <th>名称</th>
+                <th>城市</th>
+                <th>名称</th>
+                <th>城市</th>
+                <th>名称</th>
+                <th>城市</th>
+                <th>城市</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr class="active">
+            <td><input type="checkbox" data-id="12"></td>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+        </tr>
+        <tr class="info">
+            <td><input type="checkbox" data-id="15"></td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Tanmay</td>
+            <td>Bangalore</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+        </tr>
+        <tr class="warning">
+            <td><input type="checkbox" data-id="20"></td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+        </tr>
+        <tr class="danger">
+            <td><input type="checkbox" data-id="22"></td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+            <td>Sachin</td>
+            <td>Mumbai</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="../wjs/lib/jquery/jquery.min.js"></script>
+<script>
+    $(function ($) {
+            var arr = []
+        var $btn = $('#btn')
+        var $allCheck = $('#allcheckbox')
+        var $checkLists = $('tbody input')
+
+        $checkLists.on('change',function () {
+            var id = $(this).data('id')
+            if ($(this).prop('checked')) {
+                arr.includes(id) || arr.push(id)
+            } else {
+                arr.splice(arr.indexOf(id),1)
+            }
+            arr.length ? $btn.fadeIn() : $btn.fadeOut()
+            if ($checkLists.length == $('tbody input:checked').length){
+                $allCheck.prop('checked',true)
+            } else {
+                $allCheck.prop('checked',false)
+            }
+            $('#btn').prop('search','?id='+arr)
+        })
+        $allCheck.on('change',function () {
+           $checkLists.prop('checked',$(this).prop('checked')).trigger('change')
+        })
+    })
+</script>
+</body>
+</html>
